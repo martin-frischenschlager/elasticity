@@ -235,8 +235,9 @@ elif loadType is "compression":
 elif loadType is "shear":
     T = Constant((0,-10**2 * force,0))
 elif loadType is "bending":
-    pass
+    f = Constant((0,-10**3 * force,0))
 elif loadType is "torsion":
+    f = Expression(("frc * cos(x[0])","frc * -sin(x[1])","0"), degree=3, frc = 10**3 * force)
     pass
 
 a=inner(sigma(u),epsilon(v))*dx
