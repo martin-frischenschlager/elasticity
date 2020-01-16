@@ -15,7 +15,7 @@ Line Loop(1) = {1, 2, 3, 4};
 Plane Surface(1) = {1};
 
 //EXTRUDE
-beam[] = Extrude{0.0, 0.0, 10.0} {Surface{1};};
+beam[] = Extrude{0.0, 0.0, 50.0} {Surface{1};};
 
 //DEFINE PHYSICAL SURFACES/VOLUMES
 Physical Surface(1) = {1};

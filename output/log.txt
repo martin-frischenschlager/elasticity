@@ -1,6 +1,48 @@
 ********************************************************************************
+Material: rubber
+Shape: Rectangular
+Load: bending
+Force: 11772.0
+Max / Min Displacement: 9179.50158868398 | -0.002547997704558438
+********************************************************************************
+Material: rubber
+Shape: Rectangular
+Load: bending
+Force: 11772.0
+Max / Min Displacement: 183.59003177367734 | -5.0959954091170114e-05
+********************************************************************************
+Material: rubber
+Shape: Rectangular
+Load: bending
+Force: 11772.0
+Max / Min Displacement: 183.59003177367734 | -5.0959954091170114e-05
+********************************************************************************
+Material: rubber
+Shape: Rectangular
+Load: bending
+Force: 11772.0
+Max / Min Displacement: 11.478640268000436 | -1.1005561480209305e-05
+********************************************************************************
 Material: concrete
 Shape: Rectangular
 Load: bending
 Force: 23544.0
-Max / Min Displacement: 0.8220586481955261 | -1.1735498819249436e-05
+Max / Min Displacement: 5.099244229165041 | -1.7540801784823355e-06
+********************************************************************************
+Material: glass
+Shape: Rectangular
+Load: bending
+Force: 24525.0
+Max / Min Displacement: 2.312950183287282 | -1.1162802410733675e-06
+********************************************************************************
+Material: aluminum
+Shape: Rectangular
+Load: bending
+Force: 26487.0
+Max / Min Displacement: 1.9999922004358288 | -1.6965035780567028e-06
+********************************************************************************
+Material: steel
+Shape: Rectangular
+Load: bending
+Force: 76910.40000000001
+Max / Min Displacement: 2.149248371076396 | -1.3593424357592832e-06

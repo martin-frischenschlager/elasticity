@@ -2,7 +2,7 @@ from dolfin import *
 import materials
 import os
 
-material = "concrete"
+material = "steel"
 print("Material is", material)
 
 # set material constants
@@ -54,7 +54,7 @@ elif loadType is "compression":
 elif loadType is "shear":
     T = Constant((0,-10**2 * force,0))
 elif loadType is "bending":
-    f = Constant((0,-10**2 * force,0))
+    f = Constant((0,-force,0))
 elif loadType is "torsion":
     f = Expression(("frc * -(x[1] - 0.5)","frc * (x[0] - 0.5)","0"), degree=3, frc = 10**4 * force)
     pass
