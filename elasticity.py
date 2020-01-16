@@ -2,7 +2,7 @@ from dolfin import *
 import materials
 import os
 
-material = "aluminum"
+material = "concrete"
 print("Material is", material)
 
 # set material constants
@@ -11,14 +11,14 @@ lambda_=(nu/(1-2*nu))*(1/(1+nu))*E
 mu=(1/2)*(1/1+nu)*E
 g=9.81
 
-crossSec = "I"
+crossSec = "Rectangular"
 print("Cross-section is", crossSec)
 
 # load corresponding mesh
 path = "./meshes/gmsh/xml/" + crossSec + "Beam.xml"
 mesh = Mesh("./meshes/gmsh/xml/" + crossSec + "Beam.xml")
 
-loadType = "torsion"
+loadType = "bending"
 print("Type of Load is:", loadType)
 
 # boundary conditions
@@ -54,7 +54,7 @@ elif loadType is "compression":
 elif loadType is "shear":
     T = Constant((0,-10**2 * force,0))
 elif loadType is "bending":
-    f = Constant((0,-10**3 * force,0))
+    f = Constant((0,-10**2 * force,0))
 elif loadType is "torsion":
     f = Expression(("frc * -(x[1] - 0.5)","frc * (x[0] - 0.5)","0"), degree=3, frc = 10**4 * force)
     pass
@@ -67,14 +67,14 @@ u=Function(V)
 solve(a==rhs,u,bc)
 
 # export pvd-files
-File("./output/displacement.pvd") << u
+File("./output/"+material+crossSec+loadType+".pvd") << u
 
 V = FunctionSpace(mesh, 'P', 1)
 
 u_magnitude = sqrt(dot(u, u))
 u_magnitude = project(u_magnitude, V)
 
-File("./output/magnitude.pvd") << u_magnitude
+File("./output/magnitude"+material+crossSec+loadType+".pvd") << u_magnitude
 
 # log min/max displacement values
 minDisplace = u_magnitude.vector().get_local().min()
@@ -92,6 +92,6 @@ with open("./output/log.txt", "a") as outputFile:
     outputFile.write(logEntry)
  
 # open results in paraview
-command = "paraview ./output/displacement.pvd; leafpad ./output/log.txt"
-os.system(command)
+#command = "paraview ./output/displacement.pvd; leafpad ./output/log.txt"
+#os.system(command)
 

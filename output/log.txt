@@ -1,12 +1,6 @@
 ********************************************************************************
-Material: aluminum
-Shape: I
-Load: torsion
-Force: 26487.0
-Max / Min Displacement: 0.21658198741591492 | -4.79925431491739e-07
-********************************************************************************
-Material: aluminum
-Shape: I
-Load: torsion
-Force: 26487.0
-Max / Min Displacement: 2.1658198741591685 | -4.799254314916543e-06
+Material: concrete
+Shape: Rectangular
+Load: bending
+Force: 23544.0
+Max / Min Displacement: 0.8220586481955261 | -1.1735498819249436e-05
